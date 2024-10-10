@@ -426,6 +426,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let step = $(this).closest('.step')
 
+		if (step.hasClass('step2')) {
+			let clone = step.find('.model_image svg').clone()
+
+			$('.create .steps .final_model_image').html(clone)
+		}
+
 		step.hide().next().fadeIn(200)
 	})
 
@@ -438,72 +444,78 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 
+	// Create - default colors
+	$('#material1_1_ #fill_1_, #material2_1_ #fill_2_, #material3_1_ #fill').attr('fill', '#fff')
+
+
 	// Create - set laces color
 	$('.create .steps .model_materials .laces .color label').click(function(e) {
 		let color = $(this).find('input').val(),
-			stepsEl = document.querySelector('.create .steps')
+			step = $(this).closest('.step')
 
-		stepsEl.style.setProperty('--laces_color', color)
+		step.find('#laces_1_').attr('fill', color)
+		$('.create .steps .model_materials .laces .color .current span').css('background-color', color)
 	})
 
 
 	// Create - set material 1 color
 	$('.create .steps .model_materials .material1 .color label').click(function(e) {
 		let color = $(this).find('input').val(),
-			stepsEl = document.querySelector('.create .steps')
+			step = $(this).closest('.step')
 
-		stepsEl.style.setProperty('--material1_color', color)
+		step.find('#material1_1_ #fill_1_').attr('fill', color)
+		$('.create .steps .model_materials .material1 .color .current span').css('background-color', color)
 	})
 
 
 	// Create - set material 2 color
 	$('.create .steps .model_materials .material2 .color label').click(function(e) {
 		let color = $(this).find('input').val(),
-			stepsEl = document.querySelector('.create .steps')
+			step = $(this).closest('.step')
 
-		stepsEl.style.setProperty('--material2_color', color)
+		step.find('#material2_1_ #fill_2_').attr('fill', color)
+		$('.create .steps .model_materials .material2 .color .current span').css('background-color', color)
+
 	})
 
 
 	// Create - set material 3 color
 	$('.create .steps .model_materials .material3 .color label').click(function(e) {
 		let color = $(this).find('input').val(),
-			stepsEl = document.querySelector('.create .steps')
+			step = $(this).closest('.step')
 
-		stepsEl.style.setProperty('--material3_color', color)
+		step.find('#material3_1_ #fill').attr('fill', color)
+		$('.create .steps .model_materials .material3 .color .current span').css('background-color', color)
 	})
 
 
 	// Create - set material 1
 	$('.create .steps .model_materials .material1 .material select').change(function(e) {
-		let material = $(this).val()
+		let material = $(this).val(),
+			step = $(this).closest('.step')
 
-		$('.create .steps .model_image svg .material1_image, .create .steps .final_model_image svg .material1_image').removeClass('show')
-
-		$('#' + material).addClass('show')
-		$('#final_' + material).addClass('show')
+		step.find('#material1_1_ g').hide()
+		step.find('#material1_1_ #' + material).fadeIn(200)
 	})
 
 
 	// Create - set material 2
 	$('.create .steps .model_materials .material2 .material select').change(function(e) {
-		let material = $(this).val()
+		let material = $(this).val(),
+			step = $(this).closest('.step')
 
-		$('.create .steps .model_image svg .material2_image, .create .steps .final_model_image svg .material2_image').removeClass('show')
-
-		$('#' + material).addClass('show')
-		$('#final_' + material).addClass('show')
+		step.find('#material2_1_ g').hide()
+		step.find('#material2_1_ #' + material).fadeIn(200)
 	})
 
 
 	// Create - set material 3
 	$('.create .steps .model_materials .material3 .material select').change(function(e) {
-		let material = $(this).val()
+		let material = $(this).val(),
+			step = $(this).closest('.step')
 
-		$('.create .steps .model_image svg .material3_image, .create .steps .final_model_image svg .material3_image').removeClass('show')
-
-		$('#' + material).addClass('show')
-		$('#final_' + material).addClass('show')
+		step.find('#material3_1_ g').hide()
+		step.find('#material3_1_ #' + material).fadeIn(200)
 	})
 })
 
