@@ -1,0 +1,573 @@
+@media (max-width: 479px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    :root
+    {
+        --font_size: 12px;
+        --font_size_title: 26px;
+    }
+
+
+    .cont
+    {
+        padding: 0 16px;
+    }
+
+
+    .swiper-button-next,
+    .swiper-button-prev
+    {
+        bottom: 32px;
+
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .swiper-button-next .icon,
+    .swiper-button-prev .icon
+    {
+        width: 14px;
+        height: 14px;
+    }
+
+
+    .block.small_m
+    {
+        margin-bottom: 36px;
+    }
+
+
+
+    /*----------
+        Tabs
+    ----------*/
+    .mob_tabs .mini_modal
+    {
+        padding: 16px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        padding: 16px 0;
+    }
+
+
+    header .logo img
+    {
+        width: 80px;
+    }
+
+
+
+    /*----------------
+        Block head
+    ----------------*/
+    .block_head .desc.big
+    {
+        font-size: 14px;
+    }
+
+
+    .block_head .desc br
+    {
+        display: none;
+    }
+
+
+    .block_head .link,
+    .block_head .socials
+    {
+        margin-top: 20px;
+    }
+
+
+    .block_head .link
+    {
+        font-size: 10px;
+    }
+
+
+    .block_head .socials a
+    {
+        font-size: 8px;
+
+        justify-content: flex-start;
+
+        height: 50px;
+    }
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+    .form .columns > *
+    {
+        width: calc(100% - var(--form_columns_offset));
+    }
+
+
+    .form .line
+    {
+        margin-bottom: 10px;
+    }
+
+
+    .form .contact_methods label
+    {
+        font-size: 8px;
+
+        letter-spacing: .56px;
+    }
+
+
+    .form .contact_methods label div
+    {
+        height: 40px;
+        padding: 0 9px;
+    }
+
+
+    .form .contact_methods label .icon
+    {
+        width: 21px;
+        height: 20px;
+        padding: 2px;
+    }
+
+
+    .form .input
+    {
+        font-size: 8px;
+
+        height: 42px;
+    }
+
+
+    .form .submit
+    {
+        padding-top: 17px;
+    }
+
+
+    .form .submit_btn
+    {
+        font-size: 8px;
+    }
+
+
+
+    /*-------------------
+        First section
+    -------------------*/
+    .first_section .data .title
+    {
+        font-size: calc(var(--font_size_title) + 2px);
+    }
+
+
+    .first_section .data .btns
+    {
+        margin-top: 20px;
+
+        gap: 10px;
+    }
+
+
+    .first_section .data .btns .btn
+    {
+        font-size: 8px;
+
+        width: calc(50% - 5px);
+        padding: 21px 14px;
+    }
+
+
+    .first_section .slider
+    {
+        margin-top: 0;
+    }
+
+
+    .first_section .slider .product
+    {
+        bottom: 12px;
+        left: 13px;
+    }
+
+
+    .first_section .slider .number
+    {
+        line-height: 100%;
+
+        right: auto;
+        left: 13px;
+    }
+
+
+
+    /*------------------
+        First images
+    ------------------*/
+    .first_images .row
+    {
+        margin-bottom: -16px;
+        margin-left: -16px;
+    }
+
+
+    .first_images .row > *
+    {
+        width: calc(50% - 16px);
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+
+
+    .first_images .row > *.big
+    {
+        width: calc(100% - 16px);
+    }
+
+
+    .first_images .item
+    {
+        height: 109px;
+    }
+
+
+
+    /*------------------------
+        Production gallery
+    ------------------------*/
+    .production_gallery .row
+    {
+        margin-left: -16px;
+    }
+
+
+    .production_gallery .row > *
+    {
+        width: calc(50% - 16px);
+        margin-left: 16px;
+    }
+
+
+    .production_gallery .item .icon
+    {
+        width: 60px;
+        height: 60px;
+    }
+
+
+
+    /*-----------------
+        Gallery one
+    -----------------*/
+    .gallery_one .row
+    {
+        margin-bottom: -16px;
+        margin-left: -4px;
+    }
+
+
+    .gallery_one .row > *
+    {
+        width: 350px;
+        max-width: calc(33.333% - 4px);
+        margin-bottom: 16px;
+        margin-left: 4px;
+    }
+
+
+    .gallery_one .row > *.big
+    {
+        width: calc(100% + 28px);
+        max-width: calc(100% + 28px);
+        margin-right: -16px;
+        margin-left: -12px;
+    }
+
+
+    .gallery_one figure figcaption
+    {
+        font-size: 10px;
+
+        padding: 7px 4px;
+    }
+
+
+    .gallery_one figure.big figcaption
+    {
+        padding: 10px 6px;
+    }
+
+
+
+    /*------------
+        Create
+    ------------*/
+    .create .steps .title
+    {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+
+
+    .create .steps .models .model .thumb
+    {
+        height: 140px;
+    }
+
+
+    .create .steps .form .contact_methods label div
+    {
+        padding: 0 9px;
+    }
+
+
+    .create .steps .success_title
+    {
+        font-size: 24px;
+    }
+
+
+    .create .steps .btns
+    {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+
+    .create .steps .btns .btn
+    {
+        font-size: 8px;
+
+        padding: 16px 23px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .row
+    {
+        margin-bottom: -16px;
+        margin-left: -16px;
+    }
+
+
+    .products .row > *
+    {
+        width: calc(50% - 16px);
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+
+
+    .products .product .colors
+    {
+        gap: 8px;
+    }
+
+
+    .products .product .colors > *
+    {
+        width: 14px;
+        height: 14px;
+    }
+
+
+    .products .product .colors span
+    {
+        width: 8px;
+        height: 8px;
+    }
+
+
+    .products .product .btns .btn
+    {
+        font-size: 8px;
+    }
+
+
+    .products .load_more .btn
+    {
+        font-size: 8px;
+
+        width: 173px;
+        height: 42px;
+    }
+
+
+
+    /*------------
+        Repair
+    ------------*/
+    .repair .data
+    {
+        padding: 30px 16px;
+    }
+
+
+    .repair .link a
+    {
+        font-size: 8px;
+    }
+
+
+
+    /*-----------------
+        Order block
+    -----------------*/
+    .order_block .title
+    {
+        font-size: 24px;
+    }
+
+
+
+    /*---------------
+        Materials
+    ---------------*/
+    .materials .item .name
+    {
+        font-size: 16px;
+    }
+
+
+
+    /*-------------------
+        Color palette
+    -------------------*/
+    .color_palette .data
+    {
+        width: 355px;
+    }
+
+
+    .color_palette .data img
+    {
+        width: 55px;
+        height: 55px;
+    }
+
+
+
+    /*-----------------
+        Gallery two
+    -----------------*/
+    .gallery_two .row
+    {
+        margin-bottom: -16px;
+        margin-left: -16px;
+    }
+
+
+    .gallery_two .row > *
+    {
+        width: calc(50% - 16px);
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+
+
+
+    /*---------------------
+        Socials gallery
+    ---------------------*/
+    .socials_gallery .row
+    {
+        margin-bottom: -16px;
+        margin-left: -16px;
+    }
+
+
+    .socials_gallery .row > *
+    {
+        width: calc(50% - 16px);
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+
+
+
+    /*-------------------
+        Contacts info
+    -------------------*/
+    .contacts_info .data
+    {
+        padding: 15px;
+    }
+
+
+    .contacts_info .title
+    {
+        font-size: 24px;
+    }
+
+
+    .contacts_info .item + .item
+    {
+        margin-top: 16px;
+    }
+
+
+    .contacts_info .label
+    {
+        font-size: 10px;
+    }
+
+
+    .contacts_info .metro .icon
+    {
+        font-size: 8px;
+
+        width: 16px;
+        height: 16px;
+        padding-top: 2px;
+    }
+
+
+    .contacts_info .metro span
+    {
+        margin-bottom: -3px;
+    }
+
+
+    .contacts_info .btn
+    {
+        font-size: 8px;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer .logo img
+    {
+        width: 80px;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+    .modal_title
+    {
+        font-size: 24px;
+    }
+}

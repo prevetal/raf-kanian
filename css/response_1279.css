@@ -1,0 +1,403 @@
+@media print,
+(max-width: 1279px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    :root
+    {
+        --font_size_title: 40px;
+    }
+
+
+    html.custom_scroll ::-webkit-scrollbar
+    {
+        width: 5px;
+        height: 5px;
+    }
+
+
+    .cont
+    {
+        padding: 0 20px;
+    }
+
+
+    .swiper-button-next,
+    .swiper-button-prev
+    {
+        bottom: 40px;
+    }
+
+
+    .swiper-button-next
+    {
+        right: 20px;
+    }
+
+
+
+    /*--------------
+        Fancybox
+    --------------*/
+    .fancybox__slide
+    {
+        padding: 20px !important;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        width: calc(50% + 10px);
+        padding: 40px 0;
+    }
+
+
+    header .langs,
+    header .anchors
+    {
+        display: none;
+    }
+
+
+    header .messengers
+    {
+        margin-left: auto;
+    }
+
+
+    header .mob_menu_btn
+    {
+        display: flex;
+    }
+
+
+
+    /*----------------
+        Block head
+    ----------------*/
+    .block_head * + .desc,
+    .block_head .link,
+    .block_head .socials
+    {
+        margin-top: 30px;
+    }
+
+
+
+    /*-------------------
+        First section
+    -------------------*/
+    .first_section
+    {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+
+    .first_section .data
+    {
+        padding-bottom: 20px;
+    }
+
+
+    .first_section .data .title
+    {
+        font-size: var(--font_size_title);
+    }
+
+
+    .first_section .slider .product
+    {
+        bottom: 20px;
+        left: 20px;
+    }
+
+
+
+    /*------------------
+        First images
+    ------------------*/
+    .first_images .item
+    {
+        height: 320px;
+    }
+
+
+
+    /*-----------------
+        Gallery one
+    -----------------*/
+    .gallery_one .row
+    {
+        margin-bottom: -60px;
+    }
+
+
+    .gallery_one .row > *
+    {
+        margin-bottom: 60px;
+    }
+
+
+    .gallery_one figure figcaption
+    {
+        padding: 14px;
+    }
+
+
+
+    /*------------
+        Create
+    ------------*/
+    .create .steps
+    {
+        padding: 30px;
+    }
+
+
+    .create .steps .title
+    {
+        font-size: 30px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .create .steps .models .model .thumb
+    {
+        height: 180px;
+    }
+
+
+    .create .steps .model_image
+    {
+        width: calc(100% - 350px);
+    }
+
+
+    .create .steps .model_materials
+    {
+        width: 320px;
+    }
+
+
+    .create .steps .model_materials .color .row
+    {
+        margin-bottom: -8px;
+        margin-left: -8px;
+    }
+
+
+    .create .steps .model_materials .color .row > *
+    {
+        margin-bottom: 8px;
+        margin-left: 8px;
+    }
+
+
+    .create .steps .form .checkbox a br
+    {
+        display: none;
+    }
+
+
+    .create .steps .success_image
+    {
+        min-height: 309px;
+    }
+
+
+    .create .steps .success_title
+    {
+        font-size: 30px;
+    }
+
+
+    .create .steps .btns
+    {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+
+
+    /*--------------
+        Products
+    --------------*/
+    .products .product .btns
+    {
+        flex-wrap: wrap;
+    }
+
+
+    .products .load_more
+    {
+        margin-top: 30px;
+    }
+
+
+
+    /*-----------------
+        Order block
+    -----------------*/
+    .order_block .data
+    {
+        width: 560px;
+        padding: 60px 0;
+    }
+
+
+    .order_block .title
+    {
+        font-size: 30px;
+    }
+
+
+    .order_block .image
+    {
+        max-width: calc(100% - 580px);
+        margin-right: -20px;
+    }
+
+
+
+    /*---------------
+        Materials
+    ---------------*/
+    .materials .swiper-slide
+    {
+        visibility: visible;
+
+        pointer-events: auto;
+
+        opacity: 1;
+    }
+
+
+    .materials .swiper-button-prev
+    {
+        left: -24px;
+    }
+
+    .materials .swiper-button-next
+    {
+        right: -24px;
+    }
+
+
+
+    /*-------------------
+        Color palette
+    -------------------*/
+    .color_palette .data
+    {
+        width: 915px;
+    }
+
+
+    .color_palette .data img
+    {
+        width: 125px;
+        height: 125px;
+    }
+
+
+
+    /*-------------
+        Founder
+    -------------*/
+    .founder .video_link
+    {
+        bottom: 20px;
+        left: 20px;
+    }
+
+
+
+    /*-----------------
+        Gallery two
+    -----------------*/
+    .gallery_two figure.big
+    {
+        width: calc(100% + 40px);
+        margin-right: -20px;
+        margin-bottom: 50px;
+        margin-left: -20px;
+    }
+
+
+
+    /*-------------------
+        Contacts info
+    -------------------*/
+    .contacts_info .data
+    {
+        padding: 39px;
+    }
+
+
+    .contacts_info .title
+    {
+        font-size: 30px;
+
+        margin-bottom: 30px;
+    }
+
+
+
+    /*------------------
+        Product info
+    ------------------*/
+    .product_info .images
+    {
+        width: calc(100% - 360px);
+    }
+
+
+    .product_info .images .thumbs
+    {
+        width: 120px;
+    }
+
+
+    .product_info .images .thumbs .swiper-slide
+    {
+        height: 120px;
+    }
+
+    .product_info .images .big
+    {
+        width: calc(100% - 140px);
+    }
+
+
+    .product_info .data
+    {
+        width: 320px;
+    }
+
+
+
+    /*------------
+        Footer
+    ------------*/
+    footer .messengers
+    {
+        margin-right: 20px;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+    .modal_title
+    {
+        font-size: 30px;
+    }
+}
