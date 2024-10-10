@@ -418,6 +418,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let step = $(this).closest('.step')
 
+		if (step.hasClass('step3')) {
+			let clone = step.find('.final_model_image svg').clone()
+
+			step.find('.final_model_image svg').remove()
+			$('.create .steps .step2 .model_image').html(clone)
+		}
+
 		step.hide().prev().fadeIn(200)
 	})
 
@@ -429,6 +436,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (step.hasClass('step2')) {
 			let clone = step.find('.model_image svg').clone()
 
+			step.find('.model_image svg').remove()
 			$('.create .steps .final_model_image').html(clone)
 		}
 
@@ -453,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#laces_1_').attr('fill', color)
+		step.find('#laces_1_').css('fill', color)
 		$('.create .steps .model_materials .laces .color .current span').css('background-color', color)
 	})
 
@@ -463,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#material1_1_ #fill_1_').attr('fill', color)
+		step.find('#material1_1_ #fill_1_').css('fill', color)
 		$('.create .steps .model_materials .material1 .color .current span').css('background-color', color)
 	})
 
@@ -473,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#material2_1_ #fill_2_').attr('fill', color)
+		step.find('#material2_1_ #fill_2_').css('fill', color)
 		$('.create .steps .model_materials .material2 .color .current span').css('background-color', color)
 
 	})

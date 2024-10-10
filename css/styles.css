@@ -2243,17 +2243,17 @@ header .langs .mini_modal .btn
 }
 
 
-.create .steps .model_image #material1_1_ > g,
-.create .steps .model_image #material2_1_ > g,
-.create .steps .model_image #material3_1_ > g
+.create .steps .final_model_image #material1_1_ > g,
+.create .steps .final_model_image #material2_1_ > g,
+.create .steps .final_model_image #material3_1_ > g
 {
     display: none;
 }
 
 
-.create .steps .model_image #material1_1_ #calfskin,
-.create .steps .model_image #material2_1_ #calfskin_1_,
-.create .steps .model_image #material3_1_ #calfskin_2_
+.create .steps .final_model_image #material1_1_ #calfskin,
+.create .steps .final_model_image #material2_1_ #calfskin_1_,
+.create .steps .final_model_image #material3_1_ #calfskin_2_
 {
     display: block;
 }
