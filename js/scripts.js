@@ -349,16 +349,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Mob. menu
-	$('header .mob_menu_btn, .mob_menu .close_btn').click(e => {
+	$('header .mob_menu_btn').click(e => {
 		e.preventDefault()
 
 		$('header .mob_menu_btn').toggleClass('active')
 		$('body').toggleClass('lock')
-		$('.mob_menu').toggleClass('show')
-
-		$('header .mob_menu_btn').hasClass('active')
-			? $('.overlay').fadeIn(300)
-			: $('.overlay').fadeOut(200)
+		$('header .mob_menu').toggleClass('show')
 	})
 
 

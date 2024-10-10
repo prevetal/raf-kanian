@@ -275,24 +275,6 @@ button
 
 
 
-.overlay
-{
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-
-    display: none;
-
-    width: 100%;
-    height: 100%;
-
-    opacity: .65;
-    background: #000;
-}
-
-
-
 /*--------------
     Fancybox
 --------------*/
@@ -820,179 +802,75 @@ header .mob_menu_btn .icon
 
 
 
-/*---------------
-    Mob. menu
----------------*/
-.mob_menu
+header .mob_menu
 {
-    position: fixed;
-    z-index: 101;
-    top: 0;
-    right: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
 
-    width: 390px;
-    height: 100%;
-    min-height: -moz-available;
-    min-height: -webkit-fill-available;
-    min-height:         fill-available;
+    display: none;
 
-    transition: transform .3s linear;
+    width: 100%;
+    padding: 20px;
 
     background: var(--bg);
 }
 
-.mob_menu.show
-{
-    transform: translateX(100%);
-}
-
-
-.mob_menu .close_btn
-{
-    position: absolute;
-    z-index: 3;
-    top: 7px;
-    right: 6px;
-
-    width: 22px;
-    height: 22px;
-
-    color: #d8d4c9;
-    border-radius: 50%;
-}
-
-
-.mob_menu .close_btn .icon
+header .mob_menu.show
 {
     display: block;
-
-    width: 22px;
-    height: 22px;
 }
 
 
-.mob_menu .scroll
+header .mob_menu .anchors,
+header .mob_menu .langs
 {
-    display: flex;
-    overflow: auto;
-    flex-direction: column;
-
-    height: 100%;
-    min-height: -moz-available;
-    min-height: -webkit-fill-available;
-    min-height:         fill-available;
-    padding: 20px 0;
-
-    overscroll-behavior-y: contain;
-}
-
-
-
-.mob_menu .anchors
-{
-    display: flex;
-    flex-direction: column;
-
-    gap: 16px;
-}
-
-
-.mob_menu .anchors .btn
-{
-    font-size: 16px;
-
     display: block;
 
     width: 100%;
-    margin-bottom: -4px;
+    margin: 0;
 
-    transition: color .2s linear;
-    text-align: left;
+    text-align: center;
 }
 
 
-.mob_menu .anchors .btn:hover
+header .anchors > * + *
 {
-    color: #989386;
+    margin-top: 20px;
 }
 
 
-
-.mob_menu .langs
+header .anchors .btn
 {
-    margin-top: 40px;
+    font-size: 16px;
+
+    width: 100%;
 }
 
 
-.mob_menu .langs .current
+header .mob_menu .langs
 {
-    font-size: 12px;
-    font-weight: 350;
-    line-height: 120%;
-
     display: flex;
-    align-content: center;
-    align-items: center;
+    align-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 
-    letter-spacing: .84px;
-    text-transform: uppercase;
-
-    gap: 4px;
+    margin-top: 30px;
 }
 
 
-.mob_menu .langs .current span
+header .langs .mini_modal
 {
-    margin-bottom: -4px;
+    width: 100%;
+
+    text-align: center;
 }
 
 
-.mob_menu .langs .current .icon
+header .langs .mini_modal .btn
 {
-    display: block;
-
-    width: 12px;
-    height: 7px;
-
-    transition: transform .2s linear;
-
-    color: #543a2d;
-}
-
-
-.mob_menu .langs .current.active .icon
-{
-    transform: rotate(180deg);
-}
-
-
-.mob_menu .langs .mini_modal
-{
-    padding: 8px 0;
-
-    background: var(--bg);
-}
-
-
-.mob_menu .langs .mini_modal .btn
-{
-    font-size: 12px;
-    font-weight: 350;
-    line-height: 120%;
-
-    margin-bottom: -4px;
-
-    transition: color .2s linear;
-    letter-spacing: .84px;
-    text-transform: uppercase;
-}
-
-
-.mob_menu .langs .mini_modal .btn:hover
-{
-    color: #b8b4a9;
+    padding-right: 16px;
 }
 
 
