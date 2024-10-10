@@ -834,13 +834,13 @@ header .mob_menu .langs
 }
 
 
-header .anchors > * + *
+header .mob_menu .anchors > * + *
 {
     margin-top: 20px;
 }
 
 
-header .anchors .btn
+header .mob_menu .anchors .btn
 {
     font-size: 16px;
 
