@@ -174,7 +174,7 @@
     }
 
 
-    .first_section .data .btns
+    .first_section .btns
     {
         margin-top: 20px;
 
@@ -182,7 +182,7 @@
     }
 
 
-    .first_section .data .btns .btn
+    .first_section .btns .btn
     {
         font-size: 8px;
 

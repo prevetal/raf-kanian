@@ -20,7 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev'
 			},
-			lazy: true
+			lazy: true,
+			on: {
+				activeIndexChange: swiper => {
+					let number = 0
+
+					if ((swiper.realIndex + 1) < 10) {
+						number = '0' + (swiper.realIndex + 1)
+					}
+
+					setTimeout(() => $(swiper.el).find('.number').text(number))
+				}
+			}
 		})
 	}
 
@@ -464,6 +475,39 @@ document.addEventListener('DOMContentLoaded', function () {
 			stepsEl = document.querySelector('.create .steps')
 
 		stepsEl.style.setProperty('--material3_color', color)
+	})
+
+
+	// Create - set material 1
+	$('.create .steps .model_materials .material1 .material select').change(function(e) {
+		let material = $(this).val()
+
+		$('.create .steps .model_image svg .material1_image, .create .steps .final_model_image svg .material1_image').removeClass('show')
+
+		$('#' + material).addClass('show')
+		$('#final_' + material).addClass('show')
+	})
+
+
+	// Create - set material 2
+	$('.create .steps .model_materials .material2 .material select').change(function(e) {
+		let material = $(this).val()
+
+		$('.create .steps .model_image svg .material2_image, .create .steps .final_model_image svg .material2_image').removeClass('show')
+
+		$('#' + material).addClass('show')
+		$('#final_' + material).addClass('show')
+	})
+
+
+	// Create - set material 3
+	$('.create .steps .model_materials .material3 .material select').change(function(e) {
+		let material = $(this).val()
+
+		$('.create .steps .model_image svg .material3_image, .create .steps .final_model_image svg .material3_image').removeClass('show')
+
+		$('#' + material).addClass('show')
+		$('#final_' + material).addClass('show')
 	})
 })
 

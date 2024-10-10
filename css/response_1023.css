@@ -82,9 +82,17 @@
     }
 
 
-    .first_section .data .btns
+    .first_section .btns
     {
+        display: none;
+
         margin-top: 40px;
+    }
+
+
+    .first_section .mob_btns
+    {
+        display: flex;
     }
 
 

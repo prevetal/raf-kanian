@@ -110,7 +110,7 @@
     /*-------------------
         First section
     -------------------*/
-    .first_section .data .btns
+    .first_section .btns
     {
         margin-top: 30px;
     }
@@ -198,7 +198,8 @@
     }
 
 
-    .create .steps .title {
+    .create .steps .title
+    {
         font-size: 26px;
     }
 
