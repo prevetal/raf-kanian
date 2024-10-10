@@ -324,6 +324,12 @@
     }
 
 
+    .create .steps .final_model_image
+    {
+        padding: 20px;
+    }
+
+
     .create .steps .models .model .thumb
     {
         height: 140px;
@@ -499,6 +505,13 @@
         width: calc(50% - 16px);
         margin-bottom: 16px;
         margin-left: 16px;
+    }
+
+
+    .socials_gallery .item .icon
+    {
+        width: 60px;
+        height: 60px;
     }
 
 

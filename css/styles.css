@@ -2094,6 +2094,11 @@ header .mob_menu_btn .icon
 
     border-radius: 12px;
     background: #f6f5f0;
+
+    --laces_color: #fff;
+    --material1_color: #fff;
+    --material2_color: #fff;
+    --material3_color: #fff;
 }
 
 

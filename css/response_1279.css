@@ -180,6 +180,12 @@
     }
 
 
+    .create .steps .final_model_image
+    {
+        padding: 30px;
+    }
+
+
     .create .steps .model_materials
     {
         width: 320px;

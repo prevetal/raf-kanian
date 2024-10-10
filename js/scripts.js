@@ -429,6 +429,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		step.hide().next().fadeIn(200)
 	})
+
+
+	// Create - set laces color
+	$('.create .steps .model_materials .laces .color label').click(function(e) {
+		let color = $(this).find('input').val(),
+			stepsEl = document.querySelector('.create .steps')
+
+		stepsEl.style.setProperty('--laces_color', color)
+	})
+
+
+	// Create - set material 1 color
+	$('.create .steps .model_materials .material1 .color label').click(function(e) {
+		let color = $(this).find('input').val(),
+			stepsEl = document.querySelector('.create .steps')
+
+		stepsEl.style.setProperty('--material1_color', color)
+	})
+
+
+	// Create - set material 2 color
+	$('.create .steps .model_materials .material2 .color label').click(function(e) {
+		let color = $(this).find('input').val(),
+			stepsEl = document.querySelector('.create .steps')
+
+		stepsEl.style.setProperty('--material2_color', color)
+	})
+
+
+	// Create - set material 3 color
+	$('.create .steps .model_materials .material3 .color label').click(function(e) {
+		let color = $(this).find('input').val(),
+			stepsEl = document.querySelector('.create .steps')
+
+		stepsEl.style.setProperty('--material3_color', color)
+	})
 })
 
 
