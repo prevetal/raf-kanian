@@ -2820,8 +2820,10 @@ header .langs .mini_modal .btn
 
 .gallery_one .row > *.big
 {
-    width: calc(100% - 13px);
-    max-width: calc(100% - 13px);
+    width: calc(100% + 63px);
+    max-width: calc(100% + 63px);
+    margin-right: -38px;
+    margin-left: -25px;
 }
 
 

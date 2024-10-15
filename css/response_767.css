@@ -175,8 +175,10 @@
 
     .gallery_one .row > *.big
     {
-        width: calc(100% - 8px);
-        max-width: calc(100% - 8px);
+        width: calc(100% + 32px);
+        max-width: calc(100% + 32px);
+        margin-right: -20px;
+        margin-left: -12px;
     }
 
 

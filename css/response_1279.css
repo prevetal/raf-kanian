@@ -144,6 +144,15 @@
     }
 
 
+    .gallery_one .row > *.big
+    {
+        width: calc(100% + 27px);
+        max-width: calc(100% + 27px);
+        margin-right: -20px;
+        margin-left: -7px;
+    }
+
+
     .gallery_one figure figcaption
     {
         padding: 14px;
