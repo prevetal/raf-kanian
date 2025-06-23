@@ -2317,9 +2317,16 @@
 				<section class="catalog block tabs_container" id="catalog">
 					<div class="cont">
 						<div class="block_head">
-							<div class="title">Каталог базовых моделей</div>
+							<div>
+								<div class="title">Каталог базовых моделей</div>
 
-							<div class="desc big">Вы можете выбрать любую модель из нашего каталога<br> или заказать индивидуальную пару под ваш запрос</div>
+								<div class="desc big">Вы можете выбрать любую модель из нашего каталога<br> или заказать индивидуальную пару под ваш запрос</div>
+							</div>
+
+							<button class="filter_btn">
+								<span>фильтр</span>
+								<svg class="icon"><use xlink:href="images/sprite.svg#ic_filter"></use></svg>
+							</button>
 						</div>
 
 						<div class="tabs">
@@ -3423,7 +3430,137 @@
 					</div>
 				</div>
 			</footer>
+
+			<div class="overlay"></div>
 		</div>
+
+
+		<section id="filter">
+			<button class="close_btn">
+				<svg class="icon"><use xlink:href="images/sprite.svg#ic_close"></use></svg>
+			</button>
+
+			<div class="title">Фильтр</div>
+
+			<form action="" class="form">
+				<div class="line radios">
+					<div class="label">Пол:</div>
+
+					<div class="field">
+						<label>
+							<input type="checkbox" name="group1">
+							<div>Мужской</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group1">
+							<div>женский</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group1">
+							<div>унисекс</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="line radios">
+					<div class="label">Материал верха:</div>
+
+					<div class="field">
+						<label>
+							<input type="checkbox" name="group2">
+							<div>Крокодил</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group2">
+							<div>питон</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group2">
+							<div>замша</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group2">
+							<div>тельячья кожа</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group2">
+							<div>страус</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="line radios">
+					<div class="label">Размер:</div>
+
+					<div class="field">
+						<label>
+							<input type="checkbox" name="group3">
+							<div>35</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>36</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>37</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>38</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>39</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>40</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>41</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>42</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>43</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>44</div>
+						</label>
+
+						<label>
+							<input type="checkbox" name="group3">
+							<div>45</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="submit">
+					<button type="submit" class="submit_btn">Применить фильтр</button>
+				</div>
+			</form>
+		</section>
 
 
 		<section class="modal" id="quike_buy_modal">

@@ -274,26 +274,21 @@
     -----------------*/
     .gallery_one .row
     {
-        margin-bottom: -16px;
-        margin-left: -4px;
+        gap: 16px 5px;
     }
 
 
     .gallery_one .row > *
     {
         width: 350px;
-        max-width: calc(33.333% - 4px);
-        margin-bottom: 16px;
-        margin-left: 4px;
+        max-width: calc(33.333% - 25px);
     }
 
 
     .gallery_one .row > *.big
     {
-        width: calc(100% + 28px);
-        max-width: calc(100% + 28px);
-        margin-right: -16px;
-        margin-left: -12px;
+        width: calc(100% - 38px);
+        max-width: calc(100% + 0px);
     }
 
 
@@ -307,7 +302,7 @@
 
     .gallery_one figure.big figcaption
     {
-        padding: 10px 6px;
+        padding: 10px 10px;
     }
 
 
@@ -576,11 +571,25 @@
 
 
 
+    /*------------
+        Filter
+    ------------*/
+    #filter
+    {
+        padding: 24px 16px;
+    }
+
+
+
     /*-----------
         PopUp
     -----------*/
     .modal_title
     {
         font-size: 24px;
+    }
+
+    footer .links .btn, footer .links{
+        text-align: center;
     }
 }

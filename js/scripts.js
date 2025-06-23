@@ -236,8 +236,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	Fancybox.defaults.tpl = {
-		closeButton: '<button data-fancybox-close class="f-button is-close-btn" title="{{CLOSE}}"><svg><use xlink:href="images/sprite.svg#ic_close"></use></svg></button>',
-
+		closeButton: '<button data-fancybox-close class="f-button is-close-btn" title="{{CLOSE}}"><svg><use xlink:href="https://rafkanian.ru/wp-content/themes/raten/images/sprite.svg#ic_close"></use></svg></button>',
+		spinner: '9999',
 		main: `<div class="fancybox__container" role="dialog" aria-modal="true" aria-label="{{MODAL}}" tabindex="-1">
 			<div class="fancybox__backdrop"></div>
 			<div class="fancybox__carousel"></div>
@@ -250,7 +250,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	$('body').on('click', '.modal_btn', function(e) {
 		e.preventDefault()
 
-		Fancybox.close()
+		//Fancybox.close()
+
+		if($(this).data("modal")=="quike_buy_modal"){
+			$("#quike_buy_modal input[name='title']").val($(this).data("title"));
+		}
+
+		if($(this).data("modal")=="order_modal"){
+			$("#order_modal input[name='title']").val($(this).data("title"));
+
+			let chars = "";
+			chars += "Цвет: " + $("#product_modal .color input:checked + div span").data("name") + "\n";
+			chars += "Размер: " + $("#product_modal select[name='product_size']").val() + "\n";
+			chars += "Цена: " + $("#product_modal .price").text();
+
+			$("#order_modal input[name='chars']").val(chars);
+		}
 
 		Fancybox.show([{
 			src: document.getElementById(e.target.getAttribute('data-modal')),
@@ -261,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	$('body').on('click', '.ajax_modal_btn', function(e) {
 		e.preventDefault()
 
-		Fancybox.close()
+		//Fancybox.close()
 
 		Fancybox.show([{
 			src: e.target.getAttribute('data-href'),
@@ -282,10 +297,66 @@ document.addEventListener('DOMContentLoaded', function () {
 						})
 					}
 
+					$('.product_info .vals input').on('change', function (e) {
+						$(".product_info .row .images").hide();
+						$("."+$(this).data("images")).show();
+
+						$(".product_info .data .description .text_block").html($(this).data("desc"));
+						$(".product_info .data .price").html($(this).data("price") + " ₽");
+						$(".product_info .data .art span").html($(this).data("art"));
+					});
 
 					// Product images
 					if ($('#product_modal .images').length) {
-						const productThumbs = new Swiper('#product_modal .thumbs .swiper', {
+
+						const products_thumbSliders = [],
+							products_thumb = document.querySelectorAll('#product_modal .thumbs .swiper')
+
+						products_thumb.forEach((el, i) => {
+							el.classList.add('products_thumb_s' + i)
+
+							let options = {
+								loop: true,
+								speed: 500,
+								watchSlidesProgress: true,
+								slideActiveClass: 'active',
+								slideVisibleClass: 'visible',
+								slidesPerView: 'auto',
+								direction: 'vertical',
+								spaceBetween: 20
+							}
+
+							products_thumbSliders.push(new Swiper('.products_thumb_s' + i, options))
+						})
+
+						const productsSliders = [],
+							products = document.querySelectorAll('#product_modal .big .swiper')
+
+						products.forEach((el, i) => {
+							el.classList.add('products_s' + i)
+
+							let options = {
+								loop: true,
+								speed: 500,
+								watchSlidesProgress: true,
+								slideActiveClass: 'active',
+								slideVisibleClass: 'visible',
+								spaceBetween: 0,
+								slidesPerView: 1,
+								navigation: {
+									nextEl: '.swiper-button-next',
+									prevEl: '.swiper-button-prev'
+								},
+								thumbs: {
+									swiper: products_thumbSliders[i]
+								}
+							}
+
+							productsSliders.push(new Swiper('.products_s' + i, options))
+						})
+
+
+						/*const productThumbs = new Swiper('#product_modal .thumbs .swiper', {
 							loop: true,
 							speed: 500,
 							watchSlidesProgress: true,
@@ -311,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
 							thumbs: {
 								swiper: productThumbs
 							}
-						})
+						})*/
 					}
 			  	}
 			}
@@ -387,20 +458,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Custom select - Nice select
 	const selects = document.querySelectorAll('.create select')
-
+	var niceArr = [];
 	if (selects) {
 		selects.forEach(el => {
-			NiceSelect.bind(el, {
+			var ints = NiceSelect.bind(el, {
 				placeholder: el.getAttribute('data-placeholder')
 			})
-
 			el.addEventListener('change', () => el.classList.add('selected'))
+			niceArr.push(ints);
 		})
 	}
 
-
 	// Submit forms
-	$('form.custom_submit').submit(function(e) {
+	/*$('form.custom_submit').submit(function(e) {
 		e.preventDefault()
 
 		Fancybox.close()
@@ -409,7 +479,64 @@ document.addEventListener('DOMContentLoaded', function () {
 			src: document.getElementById('success_modal'),
 			type: 'inline'
 		}])
-	})
+	})*/
+
+	$('.wpcf7 .submit_btn').on('click',function(){
+	    setTimeout(() => {
+	    	$(this).prop("disabled",true);
+	    }, 0);
+	});
+
+	$('.wpcf7').on('wpcf7invalid wpcf7spam wpcf7mailsent wpcf7mailfailed', function () {
+	    $('.wpcf7 .submit_btn').prop("disabled",false);
+	});
+
+
+	document.addEventListener( 'wpcf7mailsent', function( event ) {
+		if ( '164' == event.detail.contactFormId ) {
+			$('.step').hide()
+			$(".step4").fadeIn(200);
+		}
+		else
+		{
+			Fancybox.close()
+			Fancybox.show([{
+				src: '#success_modal',
+				type: 'inline'
+			}])
+		}
+
+		$('.wpcf7 .submit_btn').prop("disabled",false);
+
+	}, false );
+
+	$(".wpcf7 input[type='checkbox']:not(input[name='agree[]'])").on('change', function (e) {
+		$(this).closest(".wpcf7").find(".wpcf7-form-control-wrap:not(span[data-name='agree'])").removeClass("checked");
+		if($(this).prop('checked'))
+		{
+			$(this).closest(".wpcf7-form-control-wrap").addClass("checked");
+		}
+		else
+		{
+			$(this).closest(".wpcf7-form-control-wrap").removeClass("checked");
+		}
+	});
+
+	//$(".wpcf7 input[name='radio-15']").closest(".wpcf7-form-control-wrap").addClass("checked");
+
+	$(".wpcf7 input[name='agree[]']").closest(".wpcf7-form-control-wrap").addClass("checked");
+
+	$(".wpcf7 input[name='agree[]']").on('change', function (e) {
+		//$('span[data-name="agree"]').removeClass("checked");
+		if($(this).closest(".wpcf7-form-control-wrap").hasClass("checked"))
+		{
+			$(this).closest(".wpcf7-form-control-wrap").removeClass("checked");
+		}
+		else
+		{
+			$(this).closest(".wpcf7-form-control-wrap").addClass("checked");
+		}
+	});
 
 
 	// Create
@@ -423,6 +550,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			step.find('.final_model_image svg').remove()
 			$('.create .steps .step2 .model_image').html(clone)
+
 		}
 
 		step.hide().prev().fadeIn(200)
@@ -440,20 +568,61 @@ document.addEventListener('DOMContentLoaded', function () {
 			$('.create .steps .final_model_image').html(clone)
 		}
 
+		/*Добавляем в форму инфу*/
+		if (step.hasClass('step2')) {
+			$(".step3 input[name='title']").val($(".step1 input[name='model']:checked + div").find(".name span").text());
+
+			let chars = "";
+			chars += "Шнурки: " + $(".step2 #laces_modal input:checked").data("name") + "\n";
+
+			chars += "Материал 1: " + $(".step2 #material1_modal input:checked").data("name") + " | " + $(".material1 select option:selected").text() + "\n";
+			chars += "Материал 2: " + $(".step2 #material2_modal input:checked").data("name") + " | " + $(".material2 select option:selected").text() + "\n";
+			chars += "Материал 3: " + $(".step2 #material3_modal input:checked").data("name") + " | " + $(".material3 select option:selected").text() + "\n";
+
+			$(".step3 input[name='chars']").val(chars);
+		}
+
 		step.hide().next().fadeIn(200)
 	})
 
-	$('.create .steps .form').submit(function(e) {
+	/*$('.create .steps .form').submit(function(e) {
 		e.preventDefault()
 
 		let step = $(this).closest('.step')
 
 		step.hide().next().fadeIn(200)
-	})
+	})*/
+
+	$('#material1 #fill1, #material2 #fill2, #material3 #fill3').attr('fill', '#fff')
+
+	$(".model").on("change", function() {
+	    let svg = $(this).data("svg");
+	    $(".model_image").html(svg);
+	    // Create - default colors
+		$('#material1 #fill1, #material2 #fill2, #material3 #fill3').attr('fill', '#fff')
+		$('.create .steps .model_materials .laces .color .current span').css('background-color', "#fff")
+		$('.create .steps .model_materials .material1 .color .current span').css('background-color', "#fff")
+		$('.create .steps .model_materials .material2 .color .current span').css('background-color', "#fff")
+		$('.create .steps .model_materials .material3 .color .current span').css('background-color', "#fff")
 
 
-	// Create - default colors
-	$('#material1_1_ #fill_1_, #material2_1_ #fill_2_, #material3_1_ #fill').attr('fill', '#fff')
+		niceArr.forEach(ele => {
+			//console.log(ele);
+			ele.destroy();
+		});
+
+		niceArr = [];
+		if (selects) {
+			selects.forEach(el => {
+				var ints = NiceSelect.bind(el, {
+					placeholder: el.getAttribute('data-placeholder')
+				})
+				el.addEventListener('change', () => el.classList.add('selected'))
+				niceArr.push(ints);
+			})
+		}
+	});
+
 
 
 	// Create - set laces color
@@ -461,7 +630,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#laces_1_').css('fill', color)
+		step.find('#laces').css('fill', color)
 		$('.create .steps .model_materials .laces .color .current span').css('background-color', color)
 	})
 
@@ -471,7 +640,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#material1_1_ #fill_1_').css('fill', color)
+		console.log(color);
+
+		step.find('#material1 #fill1').css('fill', color)
 		$('.create .steps .model_materials .material1 .color .current span').css('background-color', color)
 	})
 
@@ -481,7 +652,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#material2_1_ #fill_2_').css('fill', color)
+		step.find('#material2 #fill2').css('fill', color)
 		$('.create .steps .model_materials .material2 .color .current span').css('background-color', color)
 
 	})
@@ -492,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let color = $(this).find('input').val(),
 			step = $(this).closest('.step')
 
-		step.find('#material3_1_ #fill').attr('fill', color)
+		step.find('#material3 #fill3').attr('fill', color)
 		$('.create .steps .model_materials .material3 .color .current span').css('background-color', color)
 	})
 
@@ -502,8 +673,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		let material = $(this).val(),
 			step = $(this).closest('.step')
 
-		step.find('#material1_1_ g').hide()
-		step.find('#material1_1_ #' + material).fadeIn(200)
+		step.find('#material1 *:not(:first-child)').hide()
+		step.find('#material1 #' + material).fadeIn(200)
 	})
 
 
@@ -512,8 +683,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		let material = $(this).val(),
 			step = $(this).closest('.step')
 
-		step.find('#material2_1_ g').hide()
-		step.find('#material2_1_ #' + material).fadeIn(200)
+		step.find('#material2 *:not(:first-child)').hide()
+		step.find('#material2 #' + material).fadeIn(200)
 	})
 
 
@@ -522,8 +693,37 @@ document.addEventListener('DOMContentLoaded', function () {
 		let material = $(this).val(),
 			step = $(this).closest('.step')
 
-		step.find('#material3_1_ g').hide()
-		step.find('#material3_1_ #' + material).fadeIn(200)
+		step.find('#material3 *:not(:first-child)').hide()
+		step.find('#material3 #' + material).fadeIn(200)
+	})
+
+	$(".load_more").click(function(e) {
+        e.preventDefault();
+
+        $(this).prev().find(".product.hide").each(function(i,elem) {
+            if(i==12)
+            {
+                return false;
+            }
+            $(elem).removeClass("hide");
+        });
+
+        if($(this).prev().find(".product.hide").length==0)
+        {
+            $(this).hide();
+        }
+    });
+
+
+	// Filter
+	$('.filter_btn, #filter .close_btn, .overlay').click(function(e) {
+		e.preventDefault()
+
+		$('#filter').toggleClass('show')
+
+		$('#filter').hasClass('show')
+			? $('.overlay').fadeIn(300)
+			: $('.overlay').fadeOut(200)
 	})
 })
 
@@ -564,15 +764,15 @@ window.addEventListener('resize', function () {
 function initMap() {
 	ymaps.ready(() => {
 		let myMap = new ymaps.Map('map', {
-			center: [55.815843, 37.581244],
+			center: [59.949588, 30.266809],
 			zoom: 13,
 			controls: []
 		})
 
 		// Кастомный маркер
-		let myPlacemark = new ymaps.Placemark([55.815843, 37.581244], {}, {
+		let myPlacemark = new ymaps.Placemark([59.949588, 30.266809], {}, {
 			iconLayout : 'default#image',
-			iconImageHref : 'images/map_marker.svg',
+			iconImageHref : 'https://rafkanian.ru/wp-content/themes/raten/images/map_marker.svg',
 			iconImageSize : [32, 38],
 			iconImageOffset : [-16, -38],
 		})

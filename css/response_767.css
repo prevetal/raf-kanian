@@ -160,25 +160,20 @@
     -----------------*/
     .gallery_one .row
     {
-        margin-bottom: -40px;
-        margin-left: -8px;
+        gap: 40px 8px;
     }
 
 
     .gallery_one .row > *
     {
-        max-width: calc(33.333% - 8px);
-        margin-bottom: 40px;
-        margin-left: 8px;
+        max-width: calc(33.333% - 27px);
     }
 
 
     .gallery_one .row > *.big
     {
-        width: calc(100% + 32px);
-        max-width: calc(100% + 32px);
-        margin-right: -20px;
-        margin-left: -12px;
+        width: calc(100% - 8px);
+        max-width: calc(100% - 8px);
     }
 
 
@@ -237,6 +232,31 @@
     {
         width: 200px;
         margin-top: 10px;
+    }
+
+
+
+    /*-------------
+        Catalog
+    -------------*/
+    .catalog .block_head
+    {
+        position: relative;
+    }
+
+
+    .catalog .filter_btn
+    {
+        font-size: 10px;
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        width: 136px;
+        height: 46px;
+        margin-top: 30px;
+        padding: 0 19px;
     }
 
 
@@ -443,7 +463,9 @@
 
     .contacts_info .item
     {
-        padding-left: 58px;
+        /*padding-left: 58px;*/
+        width: 145px;
+        margin: 0 auto;
     }
 
 
@@ -522,6 +544,24 @@
     footer .links > *
     {
         width: calc(50% - 10px);
+    }
+
+
+
+    /*------------
+        Filter
+    ------------*/
+    #filter
+    {
+        padding: 20px;
+
+        gap: 40px;
+    }
+
+
+    #filter .form .radios label div
+    {
+        min-height: 40px;
     }
 
 

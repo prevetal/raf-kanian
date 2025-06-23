@@ -275,6 +275,23 @@ button
 
 
 
+.overlay
+{
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(87, 78, 74, .30);
+}
+
+
+
 /*--------------
     Fancybox
 --------------*/
@@ -301,8 +318,8 @@ button
     --f-button-width: 22px;
     --f-button-height: 22px;
     --f-button-border-radius: 50%;
-    --f-button-color: #d8d4c9;
-    --f-button-hover-color: #d8d4c9;
+    --f-button-color: #65635e;
+    --f-button-hover-color: #000;
     --f-button-svg-width: 22px;
     --f-button-svg-height: 22px;
     --f-button-bg: transparent;
@@ -314,6 +331,13 @@ button
 .fancybox__content > .f-button.is-close-btn svg
 {
     stroke: none;
+}
+
+.fancybox__content
+{
+    padding: 0;
+
+    border-radius: 10px;
 }
 
 
@@ -416,7 +440,7 @@ button
 {
     display: none;
 
-    width: 100%;
+    width: calc(100% - 144px);
 }
 
 
@@ -561,7 +585,7 @@ button
 
 .accordion_item .data
 {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 350;
 
     display: none;
@@ -1253,6 +1277,12 @@ header .langs .mini_modal .btn
     background: #e5e4dd;
 }
 
+.form .contact_methods label:has(input:checked) div
+{
+    border-color: #e5e4dd;
+    background: #e5e4dd;
+}
+
 
 .form .checkbox
 {
@@ -1332,6 +1362,11 @@ header .langs .mini_modal .btn
 
 
 .form .checkbox input:checked ~ .check svg
+{
+    opacity: 1;
+}
+
+.form .checkbox:has(input:checked) .check svg
 {
     opacity: 1;
 }
@@ -1512,6 +1547,7 @@ header .langs .mini_modal .btn
 .first_section .data .title
 {
     font-size: 48px;
+    font-weight: 400;
     line-height: 120%;
 }
 
@@ -1527,7 +1563,7 @@ header .langs .mini_modal .btn
     flex-wrap: wrap;
     justify-content: flex-start;
 
-    width: 342px;
+    width: 352px;
     max-width: 100%;
     margin-top: 13px;
     padding: 10px 20px 10px 10px;
@@ -1690,6 +1726,7 @@ header .langs .mini_modal .btn
 
     padding-bottom: 131.730%;
 
+    border-radius: 10px;
     background: #d9d9d9;
 }
 
@@ -1832,8 +1869,6 @@ header .langs .mini_modal .btn
 
 .first_images .item
 {
-    height: 378px;
-
     border-radius: 10px;
     background: #aca1a1;
 }
@@ -2077,6 +2112,7 @@ header .langs .mini_modal .btn
 .create .steps .models .model .thumb
 {
     display: flex;
+    overflow: hidden;
     align-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -2195,25 +2231,25 @@ header .langs .mini_modal .btn
 }
 
 
-.create .steps .model_image #material1_1_ > g,
-.create .steps .model_image #material2_1_ > g,
-.create .steps .model_image #material3_1_ > g
+.create .steps .model_image #material1 > *:not(:first-child),
+.create .steps .model_image #material2 > *:not(:first-child),
+.create .steps .model_image #material3 > *:not(:first-child)
 {
     display: none;
 }
 
 
-.create .steps .model_image #material1_1_ #calfskin,
-.create .steps .model_image #material2_1_ #calfskin_1_,
-.create .steps .model_image #material3_1_ #calfskin_2_
+.create .steps .model_image #material1 #calfskin1,
+.create .steps .model_image #material2 #calfskin2,
+.create .steps .model_image #material3 #calfskin3
 {
     display: block;
 }
 
 
-.create .steps .model_image #material1_1_ #fill_1_,
-.create .steps .model_image #material2_1_ #fill_2_,
-.create .steps .model_image #material3_1_ #fill
+.create .steps .model_image #material1 #fill1,
+.create .steps .model_image #material2 #fill2,
+.create .steps .model_image #material3 #fill3
 {
     transition: fill .2s linear;
 }
@@ -2243,17 +2279,17 @@ header .langs .mini_modal .btn
 }
 
 
-.create .steps .final_model_image #material1_1_ > g,
-.create .steps .final_model_image #material2_1_ > g,
-.create .steps .final_model_image #material3_1_ > g
+.create .steps .final_model_image #material1 > g,
+.create .steps .final_model_image #material2 > g,
+.create .steps .final_model_image #material3 > g
 {
     display: none;
 }
 
 
-.create .steps .final_model_image #material1_1_ #calfskin,
-.create .steps .final_model_image #material2_1_ #calfskin_1_,
-.create .steps .final_model_image #material3_1_ #calfskin_2_
+.create .steps .final_model_image #material1 #calfskin1,
+.create .steps .final_model_image #material2 #calfskin2,
+.create .steps .final_model_image #material3 #calfskin3
 {
     display: block;
 }
@@ -2804,8 +2840,10 @@ header .langs .mini_modal .btn
 {
     justify-content: center;
 
-    margin-bottom: -80px;
-    margin-left: -13px;
+    margin-right: -38px;
+    margin-left: -38px;
+
+    gap: 80px 13px;
 }
 
 
@@ -2813,17 +2851,13 @@ header .langs .mini_modal .btn
 {
     width: 350px;
     max-width: calc(33.333% - 13px);
-    margin-bottom: 80px;
-    margin-left: 13px;
 }
 
 
 .gallery_one .row > *.big
 {
-    width: calc(100% + 63px);
-    max-width: calc(100% + 63px);
-    margin-right: -38px;
-    margin-left: -25px;
+    width: calc(100%);
+    max-width: calc(100%);
 }
 
 
@@ -2861,6 +2895,66 @@ header .langs .mini_modal .btn
 
 
 
+/*-------------
+    Catalog
+-------------*/
+.catalog .block_head
+{
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.catalog .block_head .desc
+{
+    width: 432px;
+}
+
+
+.catalog .filter_btn
+{
+    font-size: 12px;
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    height: 50px;
+    padding: 0 39px;
+
+    transition: background .2s linear;
+    letter-spacing: .84px;
+    text-transform: uppercase;
+
+    border: 1px solid #d8d4c9;
+    border-radius: 5px;
+    background: #f6f5f0;
+
+    gap: 10px;
+}
+
+
+.catalog .filter_btn .icon
+{
+    display: block;
+
+    width: 12px;
+    height: 8px;
+}
+
+
+.catalog .filter_btn:hover
+{
+    background: #d8d4c9;
+}
+
+
+
 /*--------------
     Products
 --------------*/
@@ -2892,12 +2986,19 @@ header .langs .mini_modal .btn
     background: #f6f5f0;
 }
 
+.products .product.hide
+{
+    display: none;
+}
+
 
 .products .product .thumb
 {
     position: relative;
 
     padding-bottom: 100%;
+
+    cursor: pointer;
 
     background: #d9d9d9;
 }
@@ -3423,12 +3524,13 @@ header .langs .mini_modal .btn
     flex-wrap: wrap;
     justify-content: center;
 
-    width: 995px;
+    width: 1165px;
     max-width: 100%;
     margin: 0 auto;
     padding: 10px;
+    padding-bottom: 6px;
 
-    border-radius: 130px;
+    border-radius: 74px;
     background: #f6f5f0;
 }
 
@@ -3451,7 +3553,8 @@ header .langs .mini_modal .btn
 
 .color_palette .data img + img
 {
-    margin-right: -15px;
+    /*margin-right: -12px;*/
+    margin: 0 0 4px -12px;
 }
 
 
@@ -3608,9 +3711,17 @@ header .langs .mini_modal .btn
     max-width: calc(100% - 76px);
     padding: 16px 20px;
 
+    transition: .2s;
+
     border-radius: 0 10px 10px 0;
     background: rgba(255, 255, 255, .70);
 }
+
+.founder .video_link .name:hover
+{
+    background: rgba(255, 255, 255, .90);
+}
+
 
 
 
@@ -3642,10 +3753,10 @@ header .langs .mini_modal .btn
 
 .gallery_two figure.big
 {
-    width: calc(100% + 78px);
-    margin-right: -39px;
+    width: calc(100% + 76px);
+    margin-right: -38px;
     margin-bottom: 63px;
-    margin-left: -39px;
+    margin-left: -38px;
 }
 
 
@@ -4371,17 +4482,18 @@ header .langs .mini_modal .btn
 }
 
 
-.product_info .size .nice-select .list .option:hover
+.product_info .size .nice-select .list .option:hover,
+.product_info .size .nice-select .list .option.selected
 {
     color: #8a8880;
 }
 
-
+/*
 .product_info .size .nice-select .list .option.selected,
 .product_info .size .nice-select .list .option:empty
 {
     display: none;
-}
+}*/
 
 
 .product_info .size .arr
@@ -4693,6 +4805,189 @@ footer .creator a:hover span
 
 
 
+/*------------
+    Filter
+------------*/
+#filter
+{
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 504px;
+    max-width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    transition: transform .3s linear;
+
+    background: #fff;
+
+    gap: 80px;
+}
+
+
+#filter.show
+{
+    transform: translateX(-100%);
+}
+
+
+
+#filter .close_btn
+{
+    position: absolute;
+    z-index: 9;
+    top: 16px;
+    right: 13px;
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    transition: color .2s linear;
+
+    color: #505050;
+}
+
+
+#filter .close_btn .icon
+{
+    display: block;
+
+    width: 30px;
+    height: 30px;
+}
+
+
+#filter .close_btn:hover
+{
+    color: #65635e;
+}
+
+
+
+#filter .title
+{
+    font-size: 24px;
+    font-weight: 350;
+
+    padding-right: 40px;
+
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+}
+
+
+#filter .form
+{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+
+#filter .form .line
+{
+    margin-bottom: 20px;
+}
+
+
+#filter .form .label
+{
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 120%;
+
+    margin-bottom: 12px;
+
+    letter-spacing: -.48px;
+}
+
+
+#filter .form .radios .field
+{
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    gap: 12px;
+}
+
+
+#filter .form .radios label
+{
+    display: block;
+
+    cursor: pointer;
+}
+
+
+#filter .form .radios input
+{
+    display: none;
+}
+
+
+#filter .form .radios label div
+{
+    font-size: 12px;
+    line-height: 120%;
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    min-height: 50px;
+    padding: 0 23px;
+
+    transition: .2s linear;
+    text-align: center;
+    letter-spacing: .84px;
+    text-transform: uppercase;
+
+    border: 1px solid #d8d4c9;
+    border-radius: 5px;
+    background: #fff;
+}
+
+
+#filter .form .radios input:checked + div
+{
+    border-color: #f6f5f0;
+    background: #f6f5f0;
+}
+
+
+#filter .form .submit
+{
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+
+#filter .form .submit_btn
+{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 120%;
+
+    width: 100%;
+    height: 60px;
+}
+
+
+
 /*-----------
     PopUp
 -----------*/
@@ -4820,4 +5115,20 @@ footer .creator a:hover span
     display: inline-block;
 
     width: 1206px;
+}
+
+.wpcf7-checkbox,
+.wpcf7-radio
+{
+    display: none !important;
+}
+
+.wpcf7 form .wpcf7-response-output
+{
+    display: none !important;
+}
+
+.art
+{
+    margin-top: 10px;
 }

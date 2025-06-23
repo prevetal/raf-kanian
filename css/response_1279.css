@@ -134,22 +134,12 @@
     -----------------*/
     .gallery_one .row
     {
-        margin-bottom: -60px;
+        gap: 60px 13px;
     }
 
 
     .gallery_one .row > *
     {
-        margin-bottom: 60px;
-    }
-
-
-    .gallery_one .row > *.big
-    {
-        width: calc(100% + 27px);
-        max-width: calc(100% + 27px);
-        margin-right: -20px;
-        margin-left: -7px;
     }
 
 
@@ -237,6 +227,17 @@
     {
         margin-top: 30px;
         padding-top: 30px;
+    }
+
+
+
+    /*-------------
+        Catalog
+    -------------*/
+    .catalog .filter_btn
+    {
+        height: 48px;
+        padding: 0 31px;
     }
 
 
@@ -404,6 +405,32 @@
     footer .messengers
     {
         margin-right: 20px;
+    }
+
+
+
+    /*------------
+        Filter
+    ------------*/
+    #filter
+    {
+        width: 480px;
+        padding: 24px;
+
+        gap: 48px;
+    }
+
+
+    #filter .form .radios label div
+    {
+        min-height: 44px;
+        padding: 0 19px;
+    }
+
+
+    #filter .form .submit_btn
+    {
+        height: 56px;
     }
 
 

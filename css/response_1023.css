@@ -136,13 +136,13 @@
     -----------------*/
     .gallery_one .row
     {
-        margin-bottom: -50px;
+        gap: 50px 13px;
     }
 
 
     .gallery_one .row > *
     {
-        margin-bottom: 50px;
+        
     }
 
 
